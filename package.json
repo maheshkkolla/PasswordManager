@@ -1,0 +1,12 @@
+{
+	"name" : "Password Manager",
+	"main" : "index.html",
+	"window" : {
+		"width": 700,
+		"height": 650,
+		"resizable": false		
+	},
+	"webkit": {
+		"plugin": true
+	}
+}
