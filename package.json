@@ -1,6 +1,6 @@
 {
-	"name" : "Password Manager",
-	"main" : "index.html",
+	"name" : "PasswordManager",
+	"main" : "login.html",
 	"window" : {
 		"width": 700,
 		"height": 650,
