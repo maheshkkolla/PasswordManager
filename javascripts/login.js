@@ -26,7 +26,8 @@ var setPassword = function() {
 	var password = $("#firstPassword").val();
 	var confirmPassword = $("#confirmPassword").val();
 	if(validateSetPassword(password,confirmPassword)){
-		var record = {_id:1, account:"Password Manger", userName:"", password:password};
+		var encrptedPassword = new Buffer(password).toString('base64');
+		var record = {_id:1, account:"Password Manger", userName:"", password:encrptedPassword};
 		db.insert(record, function(err, result) {
 			err && alert("Error at inserting"+err);
 			$('#signUpModal').modal('hide');
@@ -40,7 +41,8 @@ var doLogin = function() {
 	db.find({_id:1}, function(err, record) {
 		err && alert("Error:"+err);
 		console.log("Pas:",password,"re:",record);
-		if(record[0].password == password){
+		var encrptedPassword = new Buffer(password).toString('base64');
+		if(record[0].password == encrptedPassword){
 			gui.Window.open("./index.html");
 			gui.Window.get().close();
 		} else $("#loginErrMssg").text("Invalid Password");
