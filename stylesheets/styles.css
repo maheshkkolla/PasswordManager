@@ -3,9 +3,29 @@
 }
 
 #loginModal {
-	width: 70%;
-	
+	width: 70%;	
 }
 
-div {
+body {
+	background-color: whitesmoke;
 }
+
+.alert-heading {
+	background-color: lightblue;
+	color: darkblue;
+	font-family: "Comic sans ms";	
+}
+.heading {
+	border-bottom: 1px solid;
+	margin-bottom: 2%;
+}
+.domains {
+	width: 25%;
+	height:100%;
+	overflow:auto;
+	border-right: 1px solid;
+}
+.domainName {
+	display: inline;
+}
+

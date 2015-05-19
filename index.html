@@ -8,17 +8,43 @@
 	<link rel="stylesheet" type="text/css" href="./stylesheets/styles.css">
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
+		<div class="heading"> <h3>Heading</h3></div>
 		<div class="row">
-			<div class="col-md-1"> </div>
-			<div class="col-md-9">
-				<div class="col-md-3"> Account Type </div>
-				<div class="col-md-3"> Description </div>
-				<div class="col-md-3"> User Name</div>
-				<div class="col-md-3"> Password </div>
+			<div class="col-md-3  domains">
+				<input type="text" class="form-control" placeholder="Search">
+				<br>
+				<div class="list-group" id="domains">
+					<a class="list-group-item">Dapibus ac facilisis in</a>
+					<a class="list-group-item">Morbi leo risus</a>
+					<a class="list-group-item">Porta ac consectetur ac</a>
+					<a class="list-group-item">Vestibulum at eros</a>
+				</div>
+
 			</div>
-		</div>
-		<div class="" id = "accounts">
+			<div class="col-md-9">
+				<div>
+					<h3 class="domainName">Domain Name </h3>
+					<span class="btn glyphicon glyphicon-pencil" aria-hidden="true"></span>
+				</div>
+				<div id="accounts"> 
+					<div class="row lead">
+						<div class="col-md-3">Account Type</div>
+						<div class="col-md-3">User Name</div>
+						<div class="col-md-3">
+							<button class="btn btn-default">maheshkumarkolla</button>
+						</div>
+						<div class="col-md-3"> 
+							<span class="btn btn-info glyphicon glyphicon-edit" aria-hidden="true"></span>
+							<span class="btn btn-info glyphicon glyphicon-pencil" aria-hidden="true"></span>
+
+							<span class="btn btn-danger glyphicon glyphicon-trash" aria-hidden="true"></span>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

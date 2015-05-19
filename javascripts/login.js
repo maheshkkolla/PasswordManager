@@ -34,7 +34,7 @@ var setPassword = function() {
 		db.domains.insert(domainRecord, function(domainError, result) {
 			domainError && alert("Error at inserting "+JSON.stringify(domainError));
 			db.accounts.insert(accountRecord, function(accountError,row) {
-				accountError && alert("Error at inserting "+JSON.stringiFy(accountError));
+				accountError && alert("Error at inserting "+JSON.stringify(accountError));
 				$('#signUpModal').modal('hide');
 				$('#loginModal').modal('show');
 			});
