@@ -1,2 +1,2 @@
-<a class="list-group-item" onclick="displayAccountDetailsOf(@ID@)">@NAME@</a>
+<a class="list-group-item" onclick="displayDomainDetails('@ID@')">@NAME@</a>
 

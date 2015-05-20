@@ -6,7 +6,7 @@ db.accounts = new DataStore({filename: './db/accounts.json', autoload: true });
 
 var checkForSetUpOrLogin = function() {
 	
-	db.domains.find({_id:1}, function(err, thisAccount) {
+	db.domains.find({_id:'1'}, function(err, thisAccount) {
 		err && alert("Error: "+err);
 		if(thisAccount.length == 0) $('#signUpModal').modal('show');
 		else $("#loginModal").modal('show');
@@ -29,8 +29,8 @@ var setPassword = function() {
 	var confirmPassword = $("#confirmPassword").val();
 	if(validateSetPassword(password,confirmPassword)){
 		var encrptedPassword = new Buffer(password).toString('base64');
-		var domainRecord = {_id:1, name:"Password Manger"};
-		var accountRecord = {_id:1, name:"Desktop App", description:"",userName:"",password:encrptedPassword,domainId:1};
+		var domainRecord = {_id:'1', name:"Password Manger"};
+		var accountRecord = {_id:'1', name:"Desktop App", description:"",userName:"",password:encrptedPassword,domainId:'1'};
 		db.domains.insert(domainRecord, function(domainError, result) {
 			domainError && alert("Error at inserting "+JSON.stringify(domainError));
 			db.accounts.insert(accountRecord, function(accountError,row) {
@@ -44,7 +44,7 @@ var setPassword = function() {
 
 var doLogin = function() {
 	var password = $("#password").val();
-	db.accounts.find({_id:1}, function(err, record) {
+	db.accounts.find({_id:'1'}, function(err, record) {
 		err && alert("Error:"+err);
 		var encrptedPassword = new Buffer(password).toString('base64');
 		if(record[0].password == encrptedPassword){

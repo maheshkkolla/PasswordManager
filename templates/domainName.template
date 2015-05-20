@@ -1,4 +1,2 @@
-<div>
-	<h3 class="domainName">@DOMAINNAME@</h3>
-	<span onclick="editDomainName(@ID@)" class="btn glyphicon glyphicon-pencil" aria-hidden="true"></span>
-</div>
+<h3 class="domainName">@NAME@</h3>
+<span onclick="editDomainName(@ID@)" class="btn glyphicon glyphicon-pencil" aria-hidden="true"></span>

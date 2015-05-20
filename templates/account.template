@@ -1,6 +1,6 @@
 <div class="row lead">
 	<div class="col-md-3">@TYPE@</div>
-	<div class="col-md-3">@USERNAME</div>
+	<div class="col-md-3">@USERNAME@</div>
 	<div class="col-md-3">
 		<button class="btn btn-default">@PASSWORD@</button>
 	</div>
