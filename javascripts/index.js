@@ -9,6 +9,16 @@ var db = {};
 db.domains = new DataStore({filename: './db/domains.json', autoload: true }); 
 db.accounts = new DataStore({filename: './db/accounts.json', autoload: true }); 
 
+var searchDomains = function() {
+	var keyword = $('#domainSearch').val();
+	db.domains.find({name:new RegExp(keyword,"i")}, function(domainError, domains) {
+		domainError && alert("Error:"+domainError);
+		$("#domains").html("");
+		// alert(keyword + JSON.stringify(domains));
+		domains.forEach(displayDomainInList);
+	});
+}
+
 var replaceDomainTemplateWithValues = function(template, domain) {
 	var temp = template.replace("@ID@",domain._id);
 	temp = temp.replace("@NAME@",domain.name);

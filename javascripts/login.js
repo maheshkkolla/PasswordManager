@@ -29,7 +29,7 @@ var setPassword = function() {
 	var confirmPassword = $("#confirmPassword").val();
 	if(validateSetPassword(password,confirmPassword)){
 		var encrptedPassword = new Buffer(password).toString('base64');
-		var domainRecord = {_id:'1', name:"Password Manger"};
+		var domainRecord = {_id:'1', name:"Password Manager"};
 		var accountRecord = {_id:'1', name:"Desktop App", description:"",userName:"",password:encrptedPassword,domainId:'1'};
 		db.domains.insert(domainRecord, function(domainError, result) {
 			domainError && alert("Error at inserting "+JSON.stringify(domainError));
@@ -50,7 +50,10 @@ var doLogin = function() {
 		if(record[0].password == encrptedPassword){
 			gui.Window.open("./index.html");
 			gui.Window.get().close();
-		} else $("#loginErrMssg").text("Invalid Password");
+		} else{
+			$("#loginErrMssg").text("Invalid Password");
+			return;
+		}
 	});
 }
 
