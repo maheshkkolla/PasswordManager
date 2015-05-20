@@ -1,12 +1,14 @@
+<hr>
 <div class="row lead">
-	<div class="col-md-3">@TYPE@</div>
-	<div class="col-md-3">@USERNAME@</div>
-	<div class="col-md-3">
+
+	<div class="col-md-3 text-info text-center">@TYPE@</div>
+	<div class="col-md-4 text-primary text-center">@USERNAME@</div>
+	<div class="col-md-3 text-center">
 		<button class="btn btn-default">@PASSWORD@</button>
 	</div>
-	<div class="col-md-3"> 
-		<span onclick="displayNotes(@ID@)" class="btn btn-info glyphicon glyphicon-edit" aria-hidden="true"></span>
+	<div class="col-md-2"> 
 		<span onclick="editAccount(@ID@)" class="btn btn-info glyphicon glyphicon-pencil" aria-hidden="true"></span>
 		<span onclick="deleteAccount(@ID@)" class="btn btn-danger glyphicon glyphicon-trash" aria-hidden="true"></span>
 	</div>
+	
 </div>

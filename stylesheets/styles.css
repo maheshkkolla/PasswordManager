@@ -20,7 +20,7 @@ body {
 	margin-bottom: 2%;
 }
 .domains {
-	width: 25%;
+	width: 20%;
 	height:100%;
 	overflow:auto;
 	border-right: 1px solid;
@@ -28,4 +28,18 @@ body {
 .domainName {
 	display: inline;
 }
+
+.accounts {
+	width:80%;
+}
+
+.col-md-3, .col-md-4 {
+	/*border: 1px solid;*/
+
+}
+hr {
+	border-color: tan;
+}
+
+
 
