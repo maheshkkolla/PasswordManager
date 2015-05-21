@@ -9,6 +9,16 @@ var db = {};
 db.domains = new DataStore({filename: './db/domains.json', autoload: true }); 
 db.accounts = new DataStore({filename: './db/accounts.json', autoload: true }); 
 
+var showNotes = function(notes) {
+	$(event.target).popover({
+		title:'Notes',
+		trigger: 'hover',
+		content:notes,
+		html:true,
+	});
+	$(event.target).popover("show");
+}
+
 var hidePasswordAgain = function(element) {
 	$(element).text("Show Password");
 	$(element).attr('class','btn btn-default');
@@ -59,6 +69,7 @@ var replaceAccountTemplateWithValues = function(accountTemplate, account) {
 	var temp = accountTemplate.replace(/@ID@/g,account._id);
 	temp = temp.replace(/@TYPE@/g,account.name);
 	temp = temp.replace(/@USERNAME@/g,account.userName);
+	temp = temp.replace(/@NOTES@/g,account.notes);
 	return temp;
 }
 
@@ -92,6 +103,5 @@ var documentReady = function() {
 	gui.Window.get().setMinimumSize(1000,500);
 	loadDomainsList();
 }
-
 
 $(document).ready(documentReady);
