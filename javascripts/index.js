@@ -9,19 +9,41 @@ var db = {};
 db.domains = new DataStore({filename: './db/domains.json', autoload: true }); 
 db.accounts = new DataStore({filename: './db/accounts.json', autoload: true }); 
 
+var hidePasswordAgain = function(element) {
+	$(element).text("Show Password");
+	$(element).attr('class','btn btn-default');
+}
+
+var formatShowPasswordButton = function(element, password) {
+	$(element).text(password);
+	$(element).attr('class','btn btn-danger');
+	setTimeout(function() {
+		hidePasswordAgain(element);
+	},5000);
+}
+
+var showPassword = function(id) {
+	var element = event.target;
+	db.accounts.findOne({_id:id}, function(error, account) {
+		error && alert("Error:"+error);
+		var password = new Buffer(account.password,"base64");
+		formatShowPasswordButton(element,password);
+	});
+}
+
+
 var searchDomains = function() {
 	var keyword = $('#domainSearch').val();
 	db.domains.find({name:new RegExp(keyword,"i")}, function(domainError, domains) {
 		domainError && alert("Error:"+domainError);
 		$("#domains").html("");
-		// alert(keyword + JSON.stringify(domains));
 		domains.forEach(displayDomainInList);
 	});
 }
 
 var replaceDomainTemplateWithValues = function(template, domain) {
-	var temp = template.replace("@ID@",domain._id);
-	temp = temp.replace("@NAME@",domain.name);
+	var temp = template.replace(/@ID@/g,domain._id);
+	temp = temp.replace(/@NAME@/g,domain.name);
 	return temp;
 }
 
@@ -34,9 +56,9 @@ var displayDomainName = function(domainId) {
 }
 
 var replaceAccountTemplateWithValues = function(accountTemplate, account) {
-	var temp = accountTemplate.replace("@TYPE@",account.name);
-	temp = temp.replace("@USERNAME@",account.userName);
-	temp = temp.replace("@PASSWORD@",account.password);
+	var temp = accountTemplate.replace(/@ID@/g,account._id);
+	temp = temp.replace(/@TYPE@/g,account.name);
+	temp = temp.replace(/@USERNAME@/g,account.userName);
 	return temp;
 }
 
@@ -70,5 +92,6 @@ var documentReady = function() {
 	gui.Window.get().setMinimumSize(1000,500);
 	loadDomainsList();
 }
+
 
 $(document).ready(documentReady);

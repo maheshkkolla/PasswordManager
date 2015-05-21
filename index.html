@@ -8,22 +8,22 @@
 	<link rel="stylesheet" type="text/css" href="./stylesheets/styles.css">
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid" >
 		<div class="heading"> <h3>Heading</h3></div>
 		<div class="row">
-			<div class="col-md-2 domains">
+			<div class="col-md-3 domainsPane">
 				<input type="text" class="form-control" id="domainSearch" placeholder="Search" onkeyup="searchDomains()">
 				<br>
-				<div class="list-group" id="domains"></div>
+				<div class="list-group domains" style="height:100%" id="domains"></div>
 			</div>
-			<div class="col-md-9 accounts">
+			<div class="col-md-9 domainDetailsPane">
 				<div id = "domainName"> </div>
-				<div class="row"> 
+				<div class="row" > 
 					<div class="col-md-3 text-center"> Account Name</div>
 					<div class="col-md-4 text-center"> User Name</div>
 					<div class="col-md-3 text-center"> Password</div>
 				</div>
-				<div id="accounts"> </div>
+				<div id="accounts" class = "accounts"> </div>
 			</div>
 		</div>
 	</div>
