@@ -17,6 +17,20 @@ var encryptPassword = function(password) {
 	return new Buffer(password).toString('base64');
 }
 
+var deleteAccount = function(id) {
+	var conformation = confirm("You acount will parmanently delete !!!");
+	if(conformation) {
+		db.accounts.findOne({_id:id}, function(err, account) {
+			err && alert("Error:"+err);
+			var domainId = account.domainId;
+			db.accounts.remove({_id:id},{}, function(error, deleted) {
+				error && alert("Error:"+error);
+				displayDomainDetails(domainId);
+			});
+		});
+	}	
+}
+
 var updateAccount = function() {
 	var id = $("#editId").val();
 	var editedAccount = {
