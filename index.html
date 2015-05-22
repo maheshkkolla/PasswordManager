@@ -27,5 +27,22 @@
 			</div>
 		</div>
 	</div>
+
+	<div id="editAccountModal" class="modal fade" data-backdrop='static'> <div class="modal-dialog">
+		<div class="modal-content"> <div class="modal-header"><h4>Edit Account</h4></div>
+			<div class="modal-body">	
+				<form>
+					<input type='hidden' id="editId">
+					<p>Account Name: <input id = "editAccName" type="text" class="form-control"></p>
+					<p>User Name: <input id = "editUserName" type="text" class="form-control"></p>
+					<p>Password: <input id = "editPassword" type="password" class="form-control"></p>	
+					<p>Notes:	<input id = "editNotes" type="text" class="form-control"></p>
+					<button class="btn btn-default" onclick="updateAccount()"> Save</button>
+					<button class="btn btn-danger" data-dismiss="modal"> Cancel</button>
+				</form>
+			</div>
+		</div>
+	</div></div>
+
 </body>
 </html>

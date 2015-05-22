@@ -9,6 +9,29 @@ var db = {};
 db.domains = new DataStore({filename: './db/domains.json', autoload: true }); 
 db.accounts = new DataStore({filename: './db/accounts.json', autoload: true }); 
 
+var decrptPassword = function(password) {
+	return new Buffer(password,"base64");
+}
+
+var encryptPassword = function(password) {
+	return new Buffer(password).toString('base64');
+}
+
+var updateAccount = function() {
+	var id = $("#editId").val();
+	var editedAccount = {
+		name: $("#editAccName").val(),
+		userName: $("#editUserName").val(),
+		password: encryptPassword($("#editPassword").val()),
+		notes: $("#editNotes").val()
+	};
+	db.accounts.update({_id:id},{$set:editedAccount},{}, function(error, edited) {
+		error && alert("Error :"+error);
+		edited && alert("Account edited successfully");
+		$("#editAccountModal").modal('hide'); 
+	}); 
+}
+
 var showNotes = function(notes) {
 	$(event.target).popover({
 		title:'Notes',
@@ -17,6 +40,17 @@ var showNotes = function(notes) {
 		html:true,
 	});
 	$(event.target).popover("show");
+}
+
+var showEditAccount = function(id) {
+	db.accounts.findOne({_id:id}, function(error, account) {
+		$('#editId').val(account._id);
+		$('#editAccName').val(account.name);
+		$('#editUserName').val(account.userName);
+		$('#editPassword').val(decrptPassword(account.password));
+		$('#editNotes').val(account.notes);
+		$('#editAccountModal').modal('show');	
+	});
 }
 
 var hidePasswordAgain = function(element) {
@@ -36,7 +70,7 @@ var showPassword = function(id) {
 	var element = event.target;
 	db.accounts.findOne({_id:id}, function(error, account) {
 		error && alert("Error:"+error);
-		var password = new Buffer(account.password,"base64");
+		var password = decrptPassword(account.password);
 		formatShowPasswordButton(element,password);
 	});
 }
