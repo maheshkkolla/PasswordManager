@@ -12,12 +12,11 @@ db.accounts = new DataStore({filename: './db/accounts.json', autoload: true });
 var updateDomain = function() {
 	var id = $("#editDomainId").val();
 	var editedAccount = {
-		name: $("#editDomainName").val()
-		// description: $("#editDomainDescription").val()
+		name: $("#editDomainName").val(),
+		description: $("#editDomainDescription").val()
 	};
 	db.domains.update({_id:id},{$set:editedAccount},{}, function(error, edited) {
 		error && alert("Error :"+error);
-		edited && alert("Domain edited successfully");
 		$("#editAccountModal").modal('hide'); 
 	}); 
 }
@@ -27,7 +26,7 @@ var showDomainEditModal = function(id) {
 		err && alert("Error:"+err);
 		$('#editDomainId').val(domain._id);
 		$('#editDomainName').val(domain.name);
-		// $('#editDomainDescription').val(domain.description);
+		$('#editDomainDescription').val(domain.description);
 		$('#editDomainModal').modal('show');
 	});
 }
@@ -135,6 +134,7 @@ var searchDomains = function() {
 var replaceDomainTemplateWithValues = function(template, domain) {
 	var temp = template.replace(/@ID@/g,domain._id);
 	temp = temp.replace(/@NAME@/g,domain.name);
+	temp = temp.replace(/@DESC@/g,domain.description);
 	return temp;
 }
 
