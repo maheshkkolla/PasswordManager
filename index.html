@@ -44,5 +44,19 @@
 		</div>
 	</div></div>
 
+	<div id="editDomainModal" class="modal fade" data-backdrop='static'> <div class="modal-dialog">
+		<div class="modal-content"> <div class="modal-header"><h4>Edit Domain</h4></div>
+			<div class="modal-body">	
+				<form>
+					<input type='hidden' id="editDomainId">
+					<p>Domain Name: <input id = "editDomainName" type="text" class="form-control"></p>
+					<p>Description:	<input id = "editDomainDescription" type="text" class="form-control"></p>
+					<button class="btn btn-default" onclick="updateDomain()"> Save</button>
+					<button class="btn btn-danger" data-dismiss="modal"> Cancel</button>
+				</form>
+			</div>
+		</div>
+	</div></div>
+
 </body>
 </html>

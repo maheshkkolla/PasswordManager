@@ -9,6 +9,39 @@ var db = {};
 db.domains = new DataStore({filename: './db/domains.json', autoload: true }); 
 db.accounts = new DataStore({filename: './db/accounts.json', autoload: true }); 
 
+var updateDomain = function() {
+	var id = $("#editDomainId").val();
+	var editedAccount = {
+		name: $("#editDomainName").val()
+		// description: $("#editDomainDescription").val()
+	};
+	db.domains.update({_id:id},{$set:editedAccount},{}, function(error, edited) {
+		error && alert("Error :"+error);
+		edited && alert("Domain edited successfully");
+		$("#editAccountModal").modal('hide'); 
+	}); 
+}
+
+var showDomainEditModal = function(id) {
+	db.domains.findOne({_id:id}, function(err, domain) {
+		err && alert("Error:"+err);
+		$('#editDomainId').val(domain._id);
+		$('#editDomainName').val(domain.name);
+		// $('#editDomainDescription').val(domain.description);
+		$('#editDomainModal').modal('show');
+	});
+}
+
+var deleteDomain = function(id) {
+	var conformation = confirm("You all accounts in domain will parmanently delete !!!");
+	if(conformation) {
+		db.domains.remove({_id:id}, function(err, deleted) {
+			err && alert("Error:"+err);
+			alert("Domain delted");
+		});
+	}
+}
+
 var decrptPassword = function(password) {
 	return new Buffer(password,"base64");
 }
