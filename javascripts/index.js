@@ -9,6 +9,31 @@ var db = {};
 db.domains = new DataStore({filename: './db/domains.json', autoload: true }); 
 db.accounts = new DataStore({filename: './db/accounts.json', autoload: true }); 
 
+var createAccount = function() {
+	var domainId = $("#domainId").val();
+	var account = {
+		name: $("#AccountName").val(),
+		userName: $("#userName").val(),
+		password: encryptPassword($("#password").val()),
+		notes: $("#notes").val(),
+		domainId: domainId
+	};
+	db.accounts.insert(account, function(err, inserted) {
+		err && alert("Error:"+err);
+		displayDomainDetails(domainId);
+		$("#newAccountModal").modal('hide');
+	});	
+}
+
+var newAccountModal = function(id) {
+	db.domains.findOne({_id:id}, function(err, domain) {
+		err && alert("Error:"+err);
+		$("#accountDomain").html(domain.name);
+		$("#domainId").val(id);
+		$("#newAccountModal").modal('show');
+	});
+}
+
 var updateDomain = function() {
 	var id = $("#editDomainId").val();
 	var editedAccount = {

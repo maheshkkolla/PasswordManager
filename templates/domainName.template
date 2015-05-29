@@ -4,7 +4,7 @@
 		<div> @DESC@ </div>
 	</div>
 	<div class="col-md-4">
-		<span onclick="deleteDomain('@ID@')" class="btn glyphicon glyphicon-plus text-primary" aria-hidden="true"><br>New-Account</span>
+		<span onclick="newAccountModal('@ID@')" class="btn glyphicon glyphicon-plus text-primary" aria-hidden="true"><br>New-Account</span>
 		<span onclick="showDomainEditModal('@ID@')" class="btn glyphicon glyphicon-pencil text-primary" aria-hidden="true"><br>Edit</span>
 		<span onclick="deleteDomain('@ID@')" class="btn glyphicon glyphicon-trash text-danger" aria-hidden="true"><br>Delete</span>
 	</div>
