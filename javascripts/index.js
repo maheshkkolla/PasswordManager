@@ -101,8 +101,8 @@ var showEditAccount = function(id) {
 }
 
 var hidePasswordAgain = function(element) {
-	$(element).text("Show Password");
-	$(element).attr('class','btn btn-default');
+	$(element).text("");
+	$(element).attr('class','btn glyphicon glyphicon-eye-open password');
 }
 
 var formatShowPasswordButton = function(element, password) {

@@ -3,7 +3,7 @@
 	<div class="col-md-3 text-info text-center notes accountItem"  onmouseover="showNotes('@NOTES@')">@TYPE@</div>
 	<div class="col-md-4 text-info text-center accountItem">@USERNAME@</div>
 	<div class="col-md-3 text-center accountItem">
-		<button onclick="showPassword('@ID@')" class="btn btn-default">Show Password</button>
+		<span onclick="showPassword('@ID@')" class="btn password glyphicon glyphicon-eye-open"></span>
 	</div>
 	<div class="col-md-2"> 
 		<span onclick="showEditAccount('@ID@')" class="btn text-primary glyphicon glyphicon-pencil" aria-hidden="true" title='Edit Account'><br>Edit</span>

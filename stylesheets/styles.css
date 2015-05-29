@@ -57,6 +57,11 @@ body {
 	margin-top: 10px;
 }
 
+.password {
+	font-size:20px;
+	color:sandybrown;
+}
+
 hr {
 	border-color: tan;
 	margin: 5px;
