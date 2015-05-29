@@ -17,7 +17,8 @@ var updateDomain = function() {
 	};
 	db.domains.update({_id:id},{$set:editedAccount},{}, function(error, edited) {
 		error && alert("Error :"+error);
-		$("#editAccountModal").modal('hide'); 
+		$("#editDomainModal").modal('hide'); 
+		edited && alert("Domain edited successfully");
 	}); 
 }
 
@@ -73,8 +74,8 @@ var updateAccount = function() {
 	};
 	db.accounts.update({_id:id},{$set:editedAccount},{}, function(error, edited) {
 		error && alert("Error :"+error);
+		$("#editAccountModal").modal('hide');
 		edited && alert("Account edited successfully");
-		$("#editAccountModal").modal('hide'); 
 	}); 
 }
 

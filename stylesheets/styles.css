@@ -52,11 +52,14 @@ body {
 .notes {
 	cursor: default; 
 }
-
-
+.accountItem{
+	font-size: 18px;
+	margin-top: 10px;
+}
 
 hr {
 	border-color: tan;
+	margin: 5px;
 }
 
 

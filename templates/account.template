@@ -1,12 +1,12 @@
 <hr>
-<div class="row lead">
-	<div class="col-md-3 text-info text-center notes"  onmouseover="showNotes('@NOTES@')">@TYPE@</div>
-	<div class="col-md-4 text-primary text-center">@USERNAME@</div>
-	<div class="col-md-3 text-center">
+<div class="row">
+	<div class="col-md-3 text-info text-center notes accountItem"  onmouseover="showNotes('@NOTES@')">@TYPE@</div>
+	<div class="col-md-4 text-info text-center accountItem">@USERNAME@</div>
+	<div class="col-md-3 text-center accountItem">
 		<button onclick="showPassword('@ID@')" class="btn btn-default">Show Password</button>
 	</div>
 	<div class="col-md-2"> 
-		<span onclick="showEditAccount('@ID@')" class="btn btn-info glyphicon glyphicon-pencil" aria-hidden="true"></span>
-		<span onclick="deleteAccount('@ID@')" class="btn btn-danger glyphicon glyphicon-trash" aria-hidden="true"></span>
+		<span onclick="showEditAccount('@ID@')" class="btn text-primary glyphicon glyphicon-pencil" aria-hidden="true" title='Edit Account'><br>Edit</span>
+		<span onclick="deleteAccount('@ID@')" class="btn text-danger glyphicon glyphicon-trash" aria-hidden="true" title='Delete Account'><br>Delete</span>
 	</div>	
 </div>
