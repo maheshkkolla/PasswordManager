@@ -6,8 +6,8 @@ var gui = require('nw.gui');
 var DataStore = require('nedb');
 
 var db = {};
-db.domains = new DataStore({filename: './db/domains.json', autoload: true }); 
-db.accounts = new DataStore({filename: './db/accounts.json', autoload: true }); 
+db.domains = new DataStore({filename: './db/domains.json', autoload: true , nodeWebkitAppName:'PasswordManager'}); 
+db.accounts = new DataStore({filename: './db/accounts.json', autoload: true, nodeWebkitAppName:'PasswordManager'}); 
 
 var addDomainModal = function() {
 	$("#newDomainModal").modal('show');

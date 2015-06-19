@@ -1,8 +1,8 @@
 var DataStore = require('nedb');
 var gui = require('nw.gui');
 var db = {};
-db.domains = new DataStore({filename: './db/domains.json', autoload: true }); 
-db.accounts = new DataStore({filename: './db/accounts.json', autoload: true }); 
+db.domains = new DataStore({filename: './db/domains.json', autoload: true, nodeWebkitAppName:'PasswordManager' }); 
+db.accounts = new DataStore({filename: './db/accounts.json', autoload: true, nodeWebkitAppName:'PasswordManager' }); 
 
 var checkForSetUpOrLogin = function() {
 	
