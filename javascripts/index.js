@@ -13,6 +13,19 @@ var addDomainModal = function() {
 	$("#newDomainModal").modal('show');
 }
 
+var createDomain = function() {
+	var domain = {
+		name: $("#newDomainName").val(),
+		description: $("#newDomainDesc").val()		
+	};	
+	db.domains.insert(domain, function(err, inserted) {
+		err && alert("Error:"+err);
+		loadDomainsList();
+		displayDomainDetails(inserted._id);
+		$("#newDomainModal").modal('hide');
+	});
+}
+
 
 var createAccount = function() {
 	var domainId = $("#domainId").val();
