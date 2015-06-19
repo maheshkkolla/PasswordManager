@@ -225,6 +225,7 @@ var loadDomainsList = function() {
 
 var documentReady = function() {
 	gui.Window.get().setMinimumSize(1000,500);
+	gui.Window.get().maximize();
 	loadDomainsList();
 }
 
