@@ -9,6 +9,11 @@ var db = {};
 db.domains = new DataStore({filename: './db/domains.json', autoload: true }); 
 db.accounts = new DataStore({filename: './db/accounts.json', autoload: true }); 
 
+var addDomainModal = function() {
+	$("#newDomainModal").modal('show');
+}
+
+
 var createAccount = function() {
 	var domainId = $("#domainId").val();
 	var account = {
@@ -146,7 +151,6 @@ var showPassword = function(id) {
 		formatShowPasswordButton(element,password);
 	});
 }
-
 
 var searchDomains = function() {
 	var keyword = $('#domainSearch').val();

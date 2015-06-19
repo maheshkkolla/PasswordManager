@@ -12,6 +12,7 @@
 		<div class="heading"> <h3>Heading</h3></div>
 		<div class="row">
 			<div class="col-md-3 domainsPane">
+				<center><button class="addDomain btn btn-primary" onclick="addDomainModal()"> <span class="glyphicon glyphicon-plus"></span> &emsp; Add Domain </button></center> <br>
 				<input type="text" class="form-control" id="domainSearch" placeholder="Search" onkeyup="searchDomains()">
 				<br>
 				<div class="list-group domains" style="height:100%" id="domains"></div>
@@ -69,6 +70,21 @@
 					<p>Password: <input id = "password" type="password" class="form-control"></p>	
 					<p>Notes:	<input id = "notes" type="text" class="form-control"></p>
 					<span class="btn btn-default" onclick="createAccount()"> Create</span>
+					<span class="btn btn-danger" data-dismiss="modal"> Cancel</span>
+				</form>
+			</div>
+		</div>
+	</div></div>
+
+	<div id="newDomainModal" class="modal fade" data-backdrop='static'> <div class="modal-dialog">
+		<div class="modal-content"> 
+			<div class="modal-header"><h4>New Domain</h4></div>
+			<div class="modal-body">	
+				<form>
+					<input type='hidden' id="domainId">
+					<p>Domain Name: <input id = "domainName" type="text" class="form-control"></p>
+					<p>Description:	<input id = "domainDescription" type="text" class="form-control"></p>
+					<span class="btn btn-default" onclick="createDomain()"> Create</span>
 					<span class="btn btn-danger" data-dismiss="modal"> Cancel</span>
 				</form>
 			</div>
